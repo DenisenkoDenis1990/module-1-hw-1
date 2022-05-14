@@ -1,0 +1,191 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 581px;
+  width: 528px;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px;
+}
+
+.modal__close-button {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 6px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: $primaryBcgColor;
+  cursor: pointer;
+
+  &:hover .modal__close-icon {
+    fill: $activeButtonColor;
+  }
+  &:focus .modal__close-icon {
+    fill: $activeButtonColor;
+  }
+}
+.modal__close-icon {
+  height: 18px;
+  width: 18px;
+  fill: #000000;
+  transition: fill $transitionDuration $transitionFunction;
+}
+
+.modal__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 1.15;
+  color: #212121;
+  margin-bottom: 12px;
+}
+
+.login-form__label {
+  position: relative;
+  margin-bottom: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: $textColor;
+}
+
+.login-form__input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding-left: 42px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+  transition: border $transitionDuration $transitionFunction;
+
+  &:focus {
+    border: 1px solid $activeButtonColor;
+  }
+
+  &::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
+
+  &:focus + .login-form__icon {
+    fill: $activeButtonColor;
+  }
+}
+
+.login-form__icon {
+  position: absolute;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  left: 12px;
+  top: 26px;
+  fill: $titleColor;
+  transition: fill $transitionDuration $transitionFunction;
+}
+
+.login-form__input--comment {
+  margin-bottom: 20px;
+  height: 120px;
+  resize: none;
+  padding: 12px 16px;
+}
+
+.login-form__agreement-label {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: $textColor;
+  margin-bottom: 30px;
+}
+.login-form__agreement-link {
+  margin-left: 4px;
+  color: $activeButtonColor;
+}
+
+.login-form__agreement-input {
+  @extend .hidden;
+  &:checked + .login-form__checkbox {
+    background-image: url("../images/icon-check.svg");
+    background-color: $activeButtonColor;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-color: $activeButtonColor;
+  }
+}
+.login-form__checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid #212121;
+  border-radius: 2px;
+  margin-right: 8.38px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.modal__submit-button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  color: $primaryBcgColor;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  padding: 10px 55px;
+  background: $activeButtonColor;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border-width: 0px;
+  cursor: pointer;
+  transition: background-color $transitionDuration $transitionFunction;
+
+  &:focus,
+  &:hover {
+    background-color: #188ce8;
+  }
+}

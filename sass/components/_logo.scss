@@ -1,0 +1,17 @@
+.logo {
+  font-family: "Raleway", sans-serif;
+  font-size: 26px;
+  line-height: 1.19;
+  text-decoration: none;
+  color: $titleColor;
+  margin-right: 93px;
+}
+.logo--accent {
+  color: $activeButtonColor;
+}
+
+.logo--footer {
+  @extend .logo;
+  color: $heroTitleColor;
+  margin-right: 0;
+}

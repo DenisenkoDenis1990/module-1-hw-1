@@ -1,0 +1,105 @@
+.page-footer {
+  background-color: $footerBcgColor;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-contacts {
+  @extend %list;
+  margin-right: 85px;
+}
+
+.footer-contacts__item {
+  &:first-child {
+    margin-bottom: 20px;
+  }
+
+  &:not(:first-child) {
+    margin-top: 9px;
+  }
+}
+
+.footer-contacts__link {
+  @extend %link;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color $transitionDuration $transitionFunction;
+  &:hover,
+  &:focus {
+    color: $activeButtonColor;
+  }
+}
+
+.footer-contacts__adress {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: $primaryBcgColor;
+}
+
+.social-information {
+  margin-right: 93px;
+}
+
+.social-information__title {
+  padding-top: 12px;
+  margin-bottom: 20px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $heroTitleColor;
+}
+
+.subscribe__title {
+  @extend .social-information__title;
+}
+
+.subscribe__input {
+  padding-left: 16px;
+  margin-right: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 358px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+
+.subscribe__button {
+  width: 200px;
+  height: 50px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-radius: 4px;
+  border-width: 0px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  background-color: $activeButtonColor;
+  color: $primaryBcgColor;
+  cursor: pointer;
+}
+
+.subscribe__icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  fill: $primaryBcgColor;
+}

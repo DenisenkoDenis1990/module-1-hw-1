@@ -1,0 +1,45 @@
+.hero {
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/hero-image.jpg);
+  background-color: #c4c4c4;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 1600px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__title {
+  margin-bottom: 30px;
+  color: $heroTitleColor;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  text-align: center;
+  letter-spacing: 0.06em;
+  margin-left: 252px;
+  margin-right: 252px;
+}
+
+.hero__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 32px;
+  color: $primaryBcgColor;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.9;
+  background-color: $activeButtonColor;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+}

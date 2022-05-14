@@ -1,0 +1,111 @@
+.page-header {
+  border-bottom: 1px solid $headerBorderColor;
+}
+
+.navigation-conteiner {
+  @extend .conteiner;
+  display: flex;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-list {
+  @extend %list;
+  display: flex;
+}
+
+.navigation-list__item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.navigation-list__link {
+  @extend %link;
+  position: relative;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: $titleColor;
+  transition: color $transitionDuration $transitionFunction;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background-color: $activeButtonColor;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+
+    transform: scaleX(0);
+    transition: transform $transitionDuration $transitionFunction;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+  &:hover,
+  &:focus {
+    color: $activeButtonColor;
+  }
+}
+
+.contact-list {
+  @extend %list;
+  display: flex;
+  margin-left: auto;
+}
+
+.contact-list__item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.contact-list__link {
+  @extend %link;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: $textColor;
+  transition: color $transitionDuration $transitionFunction;
+
+  &:hover,
+  &:focus {
+    color: $activeButtonColor;
+  }
+
+  &:hover .contact-list__icon--phone {
+    fill: $activeButtonColor;
+  }
+  &:focus .contact-list__icon--phone {
+    fill: $activeButtonColor;
+  }
+  &:hover .contact-list__icon--envelope {
+    fill: $activeButtonColor;
+  }
+  &:focus .contact-list__icon--envelope {
+    fill: $activeButtonColor;
+  }
+}
+
+.contact-list__icon {
+  display: inline-flex;
+  margin-right: 10px;
+  fill: $textColor;
+  transition: fill $transitionDuration $transitionFunction;
+
+  &--phone {
+    width: 10px;
+    height: 16px;
+  }
+
+  &--envelope {
+    width: 16px;
+    height: 12px;
+  }
+}

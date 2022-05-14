@@ -1,0 +1,140 @@
+.portfolio-section {
+  @extend %section;
+}
+
+.filters {
+  @extend %list;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowarp;
+  clip-path: insert(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.filters__item {
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.filters__button {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 24px;
+  padding-left: 24px;
+  color: $titleColor;
+  background-color: $secondaryBcgColor;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  transition: background-color $transitionDuration $transitionFunction,
+    color $transitionDuration $transitionFunction,
+    box-shadow $transitionDuration $transitionFunction;
+
+  &:hover,
+  &:focus {
+    background-color: $activeButtonColor;
+    color: $primaryBcgColor;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.examples {
+  @extend %list;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.examples__item {
+  margin-right: 30px;
+  margin-bottom: 30px;
+  transition: box-shadow $transitionDuration $transitionFunction;
+  overflow: hidden;
+  &:nth-child(3n + 0) {
+    margin-right: 0;
+  }
+  &:nth-last-child(-n + 3) {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  &:hover .image-overlay {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.examples__link {
+  display: block;
+
+  text-decoration: none;
+  color: $textColor;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.overlay-conteiner {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  opacity: 1;
+  top: 0;
+  transform: translateY(294px);
+  transition: transform $transitionDuration $transitionFunction,
+    opacity $transitionDuration $transitionFunction;
+}
+
+.image-overlay__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: $heroTitleColor;
+}
+.examples__desc {
+  padding-top: 20px;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-bottom: 20px;
+  border: 1px solid #eeeeee;
+}
+
+.examples__title {
+  margin-bottom: 4px;
+
+  color: $titleColor;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.examples__text {
+  font-size: 16px;
+  line-height: 1.9;
+}

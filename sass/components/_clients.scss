@@ -1,0 +1,47 @@
+.clients {
+  @extend %section;
+  background-color: var(--primary-bcg-color);
+}
+
+.best-clients {
+  @extend %list;
+  display: flex;
+  justify-content: center;
+}
+
+.best-clients__item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.best-client__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  border-width: 1px;
+  border-color: $bestClientIconColor;
+  border-style: solid;
+  border-radius: 4%;
+  transition: border-color $transitionDuration $transitionFunction;
+
+  &:hover,
+  &:focus {
+    border-color: $activeButtonColor;
+  }
+
+  &:hover .best-client__icon {
+    fill: $activeButtonColor;
+  }
+
+  &:focus .best-client__icon {
+    fill: $activeButtonColor;
+  }
+}
+
+.best-client__icon {
+  fill: $bestClientIconColor;
+  height: 60px;
+  width: 106px;
+  transition: fill $transitionDuration $transitionFunction;
+}

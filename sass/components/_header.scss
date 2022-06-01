@@ -1,52 +1,157 @@
 .page-header {
   border-bottom: 1px solid $headerBorderColor;
+  position: relative;
 }
 
 .navigation-conteiner {
   @extend .conteiner;
-  display: flex;
+
+  @media screen and (min-width: $tabletScreen) {
+    display: flex;
+  }
 }
 
 .navigation {
-  display: flex;
-  align-items: center;
+  @media screen and (min-width: $tabletScreen) {
+    display: flex;
+  }
 }
 
 .navigation-list {
   @extend %list;
-  display: flex;
+  margin-bottom: 302px;
+  @media screen and (min-width: $tabletScreen) {
+    display: flex;
+    margin-bottom: 0;
+  }
 }
 
-.navigation-list__item:not(:last-child) {
-  margin-right: 50px;
+.navigation-list__item {
+  @media screen and (max-width: 767px) {
+    font-size: 40px;
+    line-height: 1.17;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  @media screen and (min-width: $tabletScreen) {
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+}
+
+.navigation-conteiner__mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation-button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  fill: $titleColor;
+  transition: fill $transitionDuration $transitionFunction;
+  z-index: 10;
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+
+    &--close {
+      display: none;
+    }
+  }
+
+  &.is-open &__icon--close {
+    display: block;
+  }
+
+  &.is-open &__icon--menu {
+    display: none;
+  }
+
+  &:hover &__icon {
+    fill: $activeButtonColor;
+  }
+  &:focus &__icon {
+    fill: $activeButtonColor;
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    display: none;
+  }
+}
+
+.navigation-conteiner__menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: $heroTitleColor;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 40px;
+  z-index: 9;
+
+  &.is-open {
+    display: block;
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    padding: 0;
+    margin-left: auto;
+  }
 }
 
 .navigation-list__link {
   @extend %link;
+
   position: relative;
   display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
   color: $titleColor;
   transition: color $transitionDuration $transitionFunction;
 
-  &::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    background-color: $activeButtonColor;
-    width: 100%;
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    border-radius: 2px;
-
-    transform: scaleX(0);
-    transition: transform $transitionDuration $transitionFunction;
+  @media screen and (min-width: $mobileScreen) and (max-width: 767px) {
+    font-size: 40px;
+    line-height: 1.17;
   }
 
-  &:hover::after {
-    transform: scaleX(1);
+  @media screen and (min-width: $tabletScreen) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      background-color: $activeButtonColor;
+      width: 100%;
+      height: 4px;
+      bottom: 0;
+      left: 0;
+      border-radius: 2px;
+
+      transform: scaleX(0);
+      transition: transform $transitionDuration $transitionFunction;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
   }
   &:hover,
   &:focus {
@@ -57,11 +162,52 @@
 .contact-list {
   @extend %list;
   display: flex;
-  margin-left: auto;
+  flex-direction: column-reverse;
+  //margin-left: auto;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: $tabletScreen) and (max-width: 1199px) {
+    display: block;
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    flex-direction: row;
+  }
 }
 
-.contact-list__item:not(:last-child) {
-  margin-right: 50px;
+.contact-list__item {
+  @media screen and (max-width: 767px) {
+    font-size: 34px;
+    line-height: 1.17;
+    &:first-child > .contact-list__link {
+      font-size: 24px;
+      line-height: 1.17;
+    }
+    &:last-child > .contact-list__link {
+      color: $activeButtonColor;
+    }
+    &:not(:first-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  @media screen and (min-width: $tabletScreen) and (max-width: 1199px) {
+    & > .contact-list__link {
+      font-size: 12px;
+      line-height: 1.16;
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  @media screen and (min-width: $desktopScreen) {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
 }
 
 .contact-list__link {
@@ -69,8 +215,7 @@
   display: flex;
   align-items: center;
   align-content: center;
-  padding-top: 32px;
-  padding-bottom: 32px;
+
   color: $textColor;
   transition: color $transitionDuration $transitionFunction;
 
@@ -94,7 +239,7 @@
 }
 
 .contact-list__icon {
-  display: inline-flex;
+  display: none;
   margin-right: 10px;
   fill: $textColor;
   transition: fill $transitionDuration $transitionFunction;
@@ -107,5 +252,39 @@
   &--envelope {
     width: 16px;
     height: 12px;
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    display: inline-flex;
+  }
+}
+.social-media {
+  @extend %list;
+  display: flex;
+
+  &__link {
+    @extend %link;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.02em;
+    color: $activeButtonColor;
+  }
+
+  &__item {
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      border-right-width: 0px;
+    }
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    display: none;
   }
 }

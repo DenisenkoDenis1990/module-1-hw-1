@@ -1,3 +1,9 @@
+.workflow {
+  @media screen and (max-width: 1199px) {
+    display: none;
+  }
+}
+
 .workflow-list {
   @extend %list;
   display: flex;

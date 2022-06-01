@@ -7,13 +7,74 @@
     url(../images/hero-image.jpg);
   background-color: #c4c4c4;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  width: 1600px;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  max-width: 1600px;
+  padding-top: 118px;
+  padding-bottom: 118px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: $desktopScreen) {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    & {
+      background-image: linear-gradient(
+          to right,
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4)
+        ),
+        url(/images/hero-image@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: $mobileScreen) {
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)
+      ),
+      url(/images/hero-img-480.jpeg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      & {
+        background-image: linear-gradient(
+            to right,
+            rgba(47, 48, 58, 0.4),
+            rgba(47, 48, 58, 0.4)
+          ),
+          url(/images/hero-img-480-2x.jpeg);
+      }
+    }
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    background-image: linear-gradient(
+        to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)
+      ),
+      url(/images/hero-img-768.jpeg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      & {
+        background-image: linear-gradient(
+            to right,
+            rgba(47, 48, 58, 0.4),
+            rgba(47, 48, 58, 0.4)
+          ),
+          url(/images/hero-img-768-2x.jpeg);
+      }
+    }
+  }
 }
 
 .hero__title {
@@ -21,12 +82,27 @@
   color: $heroTitleColor;
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 44px;
-  line-height: 1.36;
+  font-size: 26px;
+  line-height: 1.62;
   text-align: center;
   letter-spacing: 0.06em;
-  margin-left: 252px;
-  margin-right: 252px;
+
+  @media screen and (min-width: $mobileScreen) {
+    margin-left: 45px;
+    margin-right: 45px;
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    margin-left: 189px;
+    margin-right: 189px;
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    font-size: 44px;
+    line-height: 1.36;
+    margin-left: 252px;
+    margin-right: 252px;
+  }
 }
 
 .hero__button {
@@ -35,9 +111,11 @@
   margin-right: auto;
   padding: 10px 32px;
   color: $primaryBcgColor;
+  font-weight: 700;
   text-align: center;
   font-size: 16px;
   line-height: 1.9;
+  letter-spacing: 0.06em;
   background-color: $activeButtonColor;
   cursor: pointer;
   border: 0;

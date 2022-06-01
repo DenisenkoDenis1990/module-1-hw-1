@@ -5,7 +5,14 @@
 
 .agents-list {
   @extend %list;
-  display: flex;
+  @media screen and (min-width: $tabletScreen) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    flex-wrap: nowrap;
+  }
 }
 
 .agents-list__item {
@@ -14,16 +21,38 @@
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 
-  &:not(:last-child) {
+  width: 100%;
+  @media screen and (min-width: $mobileScreen) {
+    margin-bottom: 30px;
+  }
+  @media screen and (min-width: $tabletScreen) {
+    width: calc((100% - 30px) / 2);
     margin-right: 30px;
+    &:nth-child(2n + 0) {
+      margin-right: 0;
+    }
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    margin-bottom: 0px;
+    width: calc((100% - 30px * 3) / 4);
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
   }
 }
 
 .agent {
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 24px;
   padding-right: auto;
   padding-left: auto;
+  @media screen and (min-width: $desktopScreen) {
+    padding-bottom: 30px;
+  }
 
   &__job {
     font-size: 16px;

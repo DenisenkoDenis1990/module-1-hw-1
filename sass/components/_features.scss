@@ -1,21 +1,69 @@
-.features {
-  @extend %list;
-  display: flex;
-  padding-bottom: 94px;
-  padding-top: 94px;
+.features-section {
+  @extend %section;
 }
 
-.features__item:not(:last-child) {
-  margin-right: 30px;
+.features {
+  @extend %list;
+
+  @media screen and (min-width: $tabletScreen) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    flex-wrap: nowrap;
+  }
+}
+
+.features__item {
+  width: 100%;
+  @media screen and (min-width: $mobileScreen) {
+    margin-bottom: 30px;
+  }
+  @media screen and (min-width: $tabletScreen) {
+    width: calc((100% - 30px) / 2);
+    margin-right: 30px;
+    &:nth-child(2n + 0) {
+      margin-right: 0;
+    }
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    margin-bottom: 0px;
+    &:not(:last-child) {
+      width: calc((100% - 30px * 3) / 4);
+      margin-right: 30px;
+    }
+  }
 }
 
 .features__icon {
+  display: flex;
+  justify-content: center;
   padding-top: 25px;
   padding-bottom: 25px;
-  padding-left: 100px;
-  padding-right: 100px;
   margin-bottom: 30px;
   background-color: $secondaryBcgColor;
+
+  @media screen and (min-width: $mobileScreen) {
+    padding-left: 190px;
+    padding-right: 190px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $tabletScreen) {
+    padding-left: 142px;
+    padding-right: 142px;
+  }
+
+  @media screen and (min-width: $desktopScreen) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }
 
 .features__icon-size {
@@ -30,6 +78,10 @@
   letter-spacing: 0.03em;
   color: $titleColor;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .features__text {

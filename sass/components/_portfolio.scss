@@ -155,6 +155,10 @@
   transform: translateY(500px);
   transition: transform $transitionDuration $transitionFunction,
     opacity $transitionDuration $transitionFunction;
+
+  @media screen and(min-width: $tabletScreen) and (max-width: 1199px) {
+    padding-top: 49px;
+  }
 }
 
 .image-overlay__text {
